@@ -44,12 +44,12 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
   const canvas: HTMLCanvasElement = document.createElement('canvas');
 
   options = {
+    start: 0,
+    end: 0,
     width: 512,
     height: 128,
     fill: 'black',
     ...(options || {}),
-    start: 0,
-    end: 0,
   };
   if (options.start < 0 || options.start > options.width) options.start = 0;
   if (options.end === 0 || options.end > options.width) options.end = options.width;

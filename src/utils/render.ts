@@ -52,6 +52,7 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
     ...(options || {}),
   };
   if (options.start < 0 || options.start > options.width) options.start = 0;
+  if (options.start > options.width) options.start = options.width;
   if (options.end === 0 || options.end > options.width) options.end = options.width;
   canvas.width = options.end - options.start;
   canvas.height = options.height;

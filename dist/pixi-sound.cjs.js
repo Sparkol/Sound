@@ -1,7 +1,7 @@
 /*!
  * @pixi/sound - v4.3.1
  * https://github.com/pixijs/pixi-sound
- * Compiled Thu, 23 Feb 2023 11:25:34 UTC
+ * Compiled Thu, 23 Feb 2023 15:55:26 UTC
  *
  * @pixi/sound is licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license
@@ -3383,7 +3383,7 @@ function playOnce(url, callback) {
  */
 function render(sound, options) {
     var canvas = document.createElement('canvas');
-    options = __assign(__assign({ width: 512, height: 128, fill: 'black' }, (options || {})), { start: 0, end: 0 });
+    options = __assign({ start: 0, end: 0, width: 512, height: 128, fill: 'black' }, (options || {}));
     if (options.start < 0 || options.start > options.width)
         options.start = 0;
     if (options.end === 0 || options.end > options.width)

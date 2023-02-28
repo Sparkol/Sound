@@ -1,7 +1,7 @@
 /*!
  * @pixi/sound - v4.3.1
  * https://github.com/pixijs/pixi-sound
- * Compiled Tue, 28 Feb 2023 15:13:00 UTC
+ * Compiled Tue, 28 Feb 2023 15:24:25 UTC
  *
  * @pixi/sound is licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license
@@ -3377,15 +3377,23 @@ function render(sound, options) {
     // eslint-disable-next-line no-console
     console.assert(!!media.buffer, 'No buffer found, load first');
     var context = canvas.getContext('2d');
-    context.fillStyle = 'black';
+    context.fillStyle = options.fill;
     var data = media.buffer.getChannelData(0);
     var step = Math.ceil(data.length / options.width);
     var amp = options.height;
     for (var i = options.start; i < options.end; i++) {
+        var min = 1.0;
+        var max = -1.0;
         for (var j = 0; j < step; j++) {
-            data[i * step + j];
+            var datum = data[i * step + j];
+            if (datum < min) {
+                min = datum;
+            }
+            if (datum > max) {
+                max = datum;
+            }
         }
-        context.fillRect(i - options.start, -1, 1, Math.max(1, amp));
+        context.fillRect(i - options.start, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
     }
     return baseTexture;
 }

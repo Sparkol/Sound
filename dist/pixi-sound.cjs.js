@@ -1,7 +1,7 @@
 /*!
  * @pixi/sound - v4.3.1
  * https://github.com/pixijs/pixi-sound
- * Compiled Thu, 23 Feb 2023 16:03:30 UTC
+ * Compiled Tue, 28 Feb 2023 14:30:26 UTC
  *
  * @pixi/sound is licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license

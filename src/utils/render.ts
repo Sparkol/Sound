@@ -73,7 +73,7 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
   context.fillStyle = options.fill;
   const data: Float32Array = media.buffer.getChannelData(0);
   const step: number = Math.ceil(data.length / options.width);
-  const amp: number = options.height;
+  const amp: number = options.height / 2;
 
   for (let i = options.start; i < options.end; i++) {
     let min = 1.0;

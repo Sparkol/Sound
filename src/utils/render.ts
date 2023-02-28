@@ -70,7 +70,7 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
 
   const context: CanvasRenderingContext2D = canvas.getContext('2d');
 
-  context.fillStyle = 'red';
+  context.fillStyle = 'black';
   const data: Float32Array = media.buffer.getChannelData(0);
   const step: number = Math.ceil(data.length / options.width);
   const amp: number = options.height;
@@ -89,7 +89,7 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
         max = datum;
       }
     }
-    context.fillRect(i - options.start, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
+    context.fillRect(i - options.start, -1, 1, Math.max(1, amp));
   }
 
   return baseTexture;

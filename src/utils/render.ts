@@ -70,14 +70,14 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
 
   const context: CanvasRenderingContext2D = canvas.getContext('2d');
 
-  context.fillStyle = options.fill;
+  context.fillStyle = 'red';
   const data: Float32Array = media.buffer.getChannelData(0);
   const step: number = Math.ceil(data.length / options.width);
-  const amp: number = options.height / 2;
+  const amp: number = options.height;
 
-  for (let i = options.start; i <= options.end; i++) {
-    let min = 0;
-    let max = 0;
+  for (let i = options.start; i < options.end; i++) {
+    let min = 1.0;
+    let max = -1.0;
 
     for (let j = 0; j < step; j++) {
       const datum: number = data[i * step + j];
@@ -89,8 +89,7 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
         max = datum;
       }
     }
-    context.fillRect(i - options.start, (1 + min) * amp, 2, Math.max(1, (max - min) * amp));
-    i++;
+    context.fillRect(i - options.start, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
   }
 
   return baseTexture;

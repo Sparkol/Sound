@@ -1,7 +1,7 @@
 /*!
  * @pixi/sound - v4.3.1
  * https://github.com/pixijs/pixi-sound
- * Compiled Tue, 28 Feb 2023 14:39:57 UTC
+ * Compiled Tue, 28 Feb 2023 14:48:42 UTC
  *
  * @pixi/sound is licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license
@@ -3381,9 +3381,9 @@ function render(sound, options) {
     var data = media.buffer.getChannelData(0);
     var step = Math.ceil(data.length / options.width);
     var amp = options.height / 2;
-    for (var i = options.start; i < options.end; i++) {
-        var min = 1.0;
-        var max = -1.0;
+    for (var i = options.start; i <= options.end; i++) {
+        var min = 0;
+        var max = 0;
         for (var j = 0; j < step; j++) {
             var datum = data[i * step + j];
             if (datum < min) {
@@ -3393,7 +3393,8 @@ function render(sound, options) {
                 max = datum;
             }
         }
-        context.fillRect(i - options.start, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
+        context.fillRect(i - options.start, (1 + min) * amp, 2, Math.max(1, (max - min) * amp));
+        i++;
     }
     return baseTexture;
 }

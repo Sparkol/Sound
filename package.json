@@ -1,7 +1,7 @@
 {
   "name": "@pixi/sound",
-  "version": "4.3.1",
-  "description": "WebAudio API playback library with filters",
+  "version": "4.3.2",
+  "description": "WebAudio API playback library with filters-Sparkol fork",
   "source": "src/index.ts",
   "sourceBundle": "src/browser.ts",
   "main": "dist/pixi-sound.cjs.js",

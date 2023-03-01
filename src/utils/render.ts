@@ -89,7 +89,8 @@ function render(sound: Sound, options?: RenderOptions): BaseTexture {
         max = datum;
       }
     }
-    context.fillRect(i - options.start, (1 + min) * amp, 1, Math.max(1, (max - min) * amp));
+    context.fillRect(i - options.start, options.height, 1, Math.max(-options.height, min * amp * 3));
+    //i++;
   }
 
   return baseTexture;

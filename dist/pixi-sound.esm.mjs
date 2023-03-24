@@ -1,7 +1,7 @@
 /*!
  * @pixi/sound - v4.3.2
  * https://github.com/pixijs/pixi-sound
- * Compiled Tue, 28 Feb 2023 18:45:02 UTC
+ * Compiled Fri, 24 Mar 2023 16:18:44 UTC
  *
  * @pixi/sound is licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license
@@ -1476,6 +1476,7 @@ var WebAudioMedia = /** @class */ (function () {
             _this.source = request.response;
             _this._decode(request.response, callback);
         };
+        request.onerror = function () { return callback(new Error("Unable to load audio url: ".concat(url))); };
         // actually start the request
         request.send();
     };

@@ -152,6 +152,8 @@ class WebAudioMedia implements IMedia
             this._decode(request.response, callback);
         };
 
+        request.onerror = () => callback(new Error(`Unable to load audio url: ${url}`));
+
         // actually start the request
         request.send();
     }
